@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package aula1;
+package estrutura_de_dados.a_exercicios_diagnosticos;
 
 import java.util.Scanner;
 

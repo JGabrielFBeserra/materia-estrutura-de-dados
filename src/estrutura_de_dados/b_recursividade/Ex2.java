@@ -1,6 +1,8 @@
 package estrutura_de_dados.b_recursividade;
 
-public class Fatorial {
+//Implemente o método recursivo fatorial(x) que retorna o fatorial de x
+
+public class Ex2 {
     public static void main(String[] args) {
         int j = 5;
 

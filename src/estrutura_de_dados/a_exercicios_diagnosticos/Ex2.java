@@ -24,7 +24,7 @@ public class Ex2 {
 
         int vetor[] = new int[tamanhoVetor];
 
-        System.out.print("vai gerar nuumero de 0 a ?:");
+        System.out.print("vai gerar numero de 0 a ?:");
         int numeroFinal = sc.nextInt();
 
         for (int i = 0; i < tamanhoVetor; i++) {

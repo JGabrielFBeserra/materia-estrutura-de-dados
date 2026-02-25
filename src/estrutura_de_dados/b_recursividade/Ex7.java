@@ -7,7 +7,14 @@ public class Ex7 {
         String entrada = "Manuela";
 
         retornaStringInvertida2Params(entrada, 0);
+
+        System.out.println("");
+
         retornaStringInvertida1Param(entrada);
+
+        System.out.println("");
+
+        System.out.println(retornaStringInvertida1ParamBetter(entrada));
 
 
 
@@ -19,16 +26,20 @@ public class Ex7 {
             System.out.print(string.charAt(count));
           return;
         }
-
         retornaStringInvertida2Params(string, count+1);
         System.out.print(string.charAt(count));
-
-
     }
 
     private static void retornaStringInvertida1Param(String string) {
-string.
+        if(string.length() == 0) {return;}
+        System.out.print(string.substring(string.length()-1));
+        retornaStringInvertida1Param(string.substring(0, string.length() - 1));
+    }
 
-
+    private static String retornaStringInvertida1ParamBetter(String string) {
+        if(string.length() == 1 || string == null) {
+            return string;
+        }
+        return retornaStringInvertida1ParamBetter(string.substring(1)) + string.charAt(0);
     }
 }

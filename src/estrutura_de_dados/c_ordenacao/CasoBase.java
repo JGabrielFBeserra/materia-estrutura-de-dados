@@ -4,7 +4,7 @@ public class CasoBase {
 
     public static void main(String[] args) {
 
-        int N = 50000;
+        int N = 30000;
 
         int vetAleatorio_1[] = new int[N];
         int vetMelhorCaso_1[] = new int[N];
@@ -25,6 +25,10 @@ public class CasoBase {
         int vetAleatorio_4[] = vetAleatorio_1.clone();
         int vetMelhorCaso_4[] = vetMelhorCaso_1.clone();
         int vetPiorCaso_4[] = vetPiorCaso_1.clone();
+
+        int vetAleatorio_5[] = vetAleatorio_1.clone();
+        int vetMelhorCaso_5[] = vetMelhorCaso_1.clone();
+        int vetPiorCaso_5[] = vetPiorCaso_1.clone();
 
 
         long inicio, fim, tempoS, tempoMS;
@@ -157,6 +161,34 @@ public class CasoBase {
 //        exibirVetor(vetPiorCaso_4, N);
 
 
+        System.out.println("");
+        //////// com metodo insertion ! /////////////////
+
+        //--- ALEATORIO ---//
+        inicio = System.currentTimeMillis();
+        ordenarComInsertion(vetAleatorio_5, N);
+        fim = System.currentTimeMillis();
+        tempoS = (fim - inicio) / 1000;
+        tempoMS = (fim - inicio) - tempoS * 1000;
+        System.out.println("Tempo de ordenacao(insertion) Aleatorio: " + tempoS + "s" + tempoMS + "ms");
+
+        //--- MELHOR CASO ---//
+        inicio = System.currentTimeMillis();
+        ordenarComInsertion(vetMelhorCaso_5, N);
+        fim = System.currentTimeMillis();
+        tempoS = (fim - inicio) / 1000;
+        tempoMS = (fim - inicio) - tempoS * 1000;
+        System.out.println("Tempo de ordenacao(insertion) Melhor Caso: " + tempoS + "s" + tempoMS + "ms");
+
+        //--- PIOR CASO ---//
+        inicio = System.currentTimeMillis();
+        ordenarComInsertion(vetPiorCaso_5, N);
+        fim = System.currentTimeMillis();
+        tempoS = (fim - inicio) / 1000;
+        tempoMS = (fim - inicio) - tempoS * 1000;
+        System.out.println("Tempo de ordenacao(insertion) Pior Caso: " + tempoS + "s" + tempoMS + "ms");
+
+
 
     }
 
@@ -241,12 +273,25 @@ public class CasoBase {
                     indiceDoMenorNumero = j;
                 }
             }
-            if (indiceDoMenorNumero != -1 && indiceDoMenorNumero != i) {
+            if (indiceDoMenorNumero != i && indiceDoMenorNumero != -1) {
                 int tmp = vet[i];
                 vet[i] = vet[indiceDoMenorNumero];
                 vet[indiceDoMenorNumero] = tmp;
             }
             if(!foiAlterado) return;
+        }
+    }
+
+    private static void ordenarComInsertion(int[] vet, int N) {
+        for (int i = 1; i < N; ++i) {
+            int proximoNumero = vet[i];
+            int atualIndice = i - 1;
+
+            while (atualIndice >= 0 && vet[atualIndice] > proximoNumero) {
+                vet[atualIndice + 1] = vet[atualIndice];
+                atualIndice = atualIndice - 1;
+            }
+            vet[atualIndice + 1] = proximoNumero;
         }
     }
 
